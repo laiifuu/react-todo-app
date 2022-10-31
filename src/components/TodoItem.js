@@ -11,11 +11,12 @@ export default function TodoItem(props) {
   };
 
   const handleUpdatedDone = event => {
-    console.log(event.key);
     if (event.key === "Enter") {
       setEdit({ editing: false });
     }
   }
+
+  const { completed, id, title } = props.todo;
 
   let viewMode = {};
   let editMode = {};
@@ -32,23 +33,23 @@ export default function TodoItem(props) {
         <input
           type="checkbox"
           className={styles.checkbox}
-          checked={props.todo.completed}
-          onChange={() => props.handleChangeProps(props.todo.id)}
+          checked={completed}
+          onChange={() => props.handleChangeProps(id)}
         />
-        <button onClick={() => props.deleteTodoProps(props.todo.id)}>
+        <button onClick={() => props.deleteTodoProps(id)}>
           Delete
         </button>
-        <span className={props.todo.completed ? styles.completedStyle : null}>
-          {props.todo.title}
+        <span className={completed ? styles.completedStyle : null}>
+          {title}
         </span>
       </div>
       <input
         type="text"
-        value={props.todo.title}
+        value={title}
         style={editMode}
         className={styles.textInput}
         onChange={(e) => {
-          props.setUpdate(e.target.value, props.todo.id);
+          props.setUpdate(e.target.value, id);
         }}
         onKeyDown={handleUpdatedDone}
       />
