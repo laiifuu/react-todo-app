@@ -1,7 +1,7 @@
 .item {
   font-size: 1.2rem;
   list-style-type: none;
-  padding: 17px 0px;
+  padding: 17px 0;
   border-bottom: 1px solid #eaeaea;
 }
 
@@ -22,8 +22,8 @@
   margin: -10px 0 0 10px;
 }
 
-.completedStyle{
-  font-size: italic;
+.completedStyle {
+  font-style: italic;
   color: #595959;
   opacity: 0.4;
   text-decoration: line-through;

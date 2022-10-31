@@ -1,28 +1,29 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const InputTodo = props => {
+const InputTodo = (props) => {
+  const { addTodoProps } = props;
+
   const [inputText, setInputText] = useState({
-    title: "",
-  })
+    title: '',
+  });
 
-  const onChange = e => {
+  const onChange = (e) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (inputText.title.trim()) {
-      props.addTodoProps(inputText.title)
+      addTodoProps(inputText.title);
       setInputText({
-        title: "",
-      })
-    } else {
-      alert("Please write item")
+        title: '',
+      });
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
@@ -34,9 +35,12 @@ const InputTodo = props => {
         name="title"
         onChange={onChange}
       />
-      <button className="input-submit">Submit</button>
+      <button className="input-submit" type="button">Submit</button>
     </form>
-  )
-}
+  );
+};
 
-export default InputTodo
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
+};
+export default InputTodo;
