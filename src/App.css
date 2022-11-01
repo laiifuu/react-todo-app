@@ -23,10 +23,10 @@ body {
 
 .inner {
   width: 100%;
-  padding: 8rem 10px 4rem;
+  padding: 0 10px 4rem;
 }
 
-.header {
+.header > h1 {
   font-size: 6rem;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -35,6 +35,21 @@ body {
   color: #ececec;
   text-transform: lowercase;
   text-align: center;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  margin: 20px;
+  justify-content: flex-end;
+}
+
+nav > a {
+  padding: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid blueviolet;
+  color: #444;
 }
 
 .form-container {
@@ -73,4 +88,34 @@ body {
   height: 45px;
   outline: none;
   border: none;
+}
+
+.about-container {
+  display: flex;
+  gap: 30px;
+}
+
+.abt-btns {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.abt-btns > button {
+  padding: 10px 0;
+  background-color: transparent;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.about-container > .abt-btns {
+  flex: 0.25;
+}
+
+.about-container > .about-text {
+  flex: 1;
 }
